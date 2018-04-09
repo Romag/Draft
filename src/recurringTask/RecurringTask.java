@@ -27,11 +27,11 @@ public class RecurringTask {
 		Calendar[] everyRequiredDay = initializeCalendars(daysOfTheWeek, firstDate);
 		final int DAYS_TO_SKIP = k * 7; //Every k-th week multiplied by days in week
 		
-		InfiniteIterator<Calendar> infIter = new InfiniteIterator<>(everyRequiredDay);
+		Iterator<Calendar> infIter = new InfiniteIterator<>(everyRequiredDay);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
 		for(int i=0; i<resultDates.length; i++) {
-			Calendar current = (Calendar)infIter.next();
+			Calendar current = infIter.next();
 			resultDates[i] = sdf.format(current.getTime());
 			current.add(Calendar.DAY_OF_YEAR, DAYS_TO_SKIP);
 		}
@@ -80,7 +80,7 @@ public class RecurringTask {
 		return daysOfTheWeekMapping;
 	}
 	
-	private class InfiniteIterator<T extends Calendar> {
+	private class InfiniteIterator<T extends Calendar> implements Iterator<T> {
 		T[] elements;
 		int cursor;
 		public InfiniteIterator(T[] elements) {
