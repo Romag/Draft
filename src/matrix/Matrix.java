@@ -45,7 +45,9 @@ public class Matrix {
 	}
 	
 	public int[][] constructSubmatrix(int[] rowsToDelete, int[] columnsToDelete) {
-	    int[][] newMatrix = new int[matrix.length-rowsToDelete.length][matrix[0].length-columnsToDelete.length];
+		int newHeight = height-rowsToDelete.length;
+		int newWidth = width-columnsToDelete.length;
+	    int[][] newMatrix = new int[newHeight][newWidth];
 	    int rowIndex=0;
 	    int colIndex=0;
 	    int rowsPassed=0;
