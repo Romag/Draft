@@ -50,8 +50,6 @@ public class Matrix {
 	    int[][] newMatrix = new int[newHeight][newWidth];
 	    int rowIndex=0;
 	    int colIndex=0;
-	    int rowsPassed=0;
-	    int colsPassed=0;
 	    
 	    for(int i=0; i<matrix.length; i++) {
 	        if(contains(rowsToDelete, i)) continue;
