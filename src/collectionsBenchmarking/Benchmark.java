@@ -68,5 +68,10 @@ public class Benchmark {
 		   System.out.println(list.getClass()+" "+(end-start));
 	   }
 
+	   private void printList(List<?> list) {
+		   for(Object elem : list)
+			   System.out.println(elem + " ");
+		   System.out.println();
+	   }
 
 }
